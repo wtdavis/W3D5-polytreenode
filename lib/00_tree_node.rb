@@ -31,6 +31,22 @@ class PolyTreeNode
         
   end
 
+  def add_child(child_node)
+
+    #self.children << child_node if !self.children.include?(child_node)
+    child_node.parent = self if !self.children.include?(child_node)
+  end
+
+  def remove_child(child_node)
+    if !self.children.include?(child_node)
+      raise "The node doesn't have this child"
+    else
+      self.children.delete(child_node)
+      child_node.parent = nil
+    end
+
+  end
+
   # def inspect
   #   "<PTN: parent = #{parent.value}, children = #{children.value}, value = #{value}"
   # end
