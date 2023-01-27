@@ -13,6 +13,7 @@ class PolyTreeNode
         if @parent != nil
             index = @parent.children.index(self) 
             @parent.children.delete_at(index)
+            @parent = nil
         end
     else
         if @parent == nil 
@@ -24,13 +25,15 @@ class PolyTreeNode
             @parent = node
             @parent.children << self
         end
+
     end
+    return @parent
         
   end
 
-  def inspect
-    "<PTN: parent = #{parent.value}, children = #{children.value}, value = #{value}"
-  end
+  # def inspect
+  #   "<PTN: parent = #{parent.value}, children = #{children.value}, value = #{value}"
+  # end
   
 
 
