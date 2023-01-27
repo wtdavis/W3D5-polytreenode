@@ -47,10 +47,25 @@ class PolyTreeNode
 
   end
 
-  # def inspect
-  #   "<PTN: parent = #{parent.value}, children = #{children.value}, value = #{value}"
-  # end
+#   def inspect
+#     if @parent = 
+#     "<PTN: parent = #{parent.value}, children = #{children.value}, value = #{value}"
+#   end
   
+  
+  def bfs(target)
+    arr = []
+    arr << self
+    until arr.empty? 
+        first_ele = arr.shift
+        if first_ele.value == target
+            return first_ele
+        else
+            arr += first_ele.children
+        end
+    end
+    return nil
 
+  end
 
 end
