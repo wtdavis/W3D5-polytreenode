@@ -49,21 +49,22 @@ class PolyTreeNode
 
   end
 
-#   def inspect
-#     if @parent = 
-#     "<PTN: parent = #{parent.value}, children = #{children.value}, value = #{value}"
-#   end
+  def inspect
+    # if @parent = 
+    "<PTN: parent = #{parent ? parent.value : "root"}, children = #{children.map(&:value)}>"
+  end
   
   def dfs(target)
     arr = []
     return self if self.value == target
 
     self.children.each do |child|
-      debugger
-      child.dfs(target)
-        if !nil
-          return self 
+      #debugger
+      result = child.dfs(target)
+        if result != nil
+          return result 
         end
+
     end
     return nil
   end
