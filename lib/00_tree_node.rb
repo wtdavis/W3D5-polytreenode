@@ -59,7 +59,7 @@ class PolyTreeNode
     return self if self.value == target
 
     self.children.each do |child|
-      #debugger
+      #debugger#
       result = child.dfs(target)
         if result != nil
           return result 
