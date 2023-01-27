@@ -1,3 +1,5 @@
+require 'byebug'
+
 class PolyTreeNode
 
     attr_reader :parent, :children, :value
@@ -52,19 +54,32 @@ class PolyTreeNode
 #     "<PTN: parent = #{parent.value}, children = #{children.value}, value = #{value}"
 #   end
   
-  
-  def bfs(target)
+  def dfs(target)
     arr = []
-    arr << self
-    until arr.empty? 
-        first_ele = arr.shift
-        if first_ele.value == target
-            return first_ele
-        else
-            arr += first_ele.children
+    return self if self.value == target
+
+    self.children.each do |child|
+      debugger
+      child.dfs(target)
+        if !nil
+          return self 
         end
     end
     return nil
+  end
+  
+  def bfs(target)
+  arr = []
+  arr << self
+  until arr.empty? 
+      first_ele = arr.shift
+      if first_ele.value == target
+          return first_ele
+      else
+          arr += first_ele.children
+      end
+  end
+  return nil
 
   end
 
